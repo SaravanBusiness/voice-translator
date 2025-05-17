@@ -2,7 +2,7 @@ Flask==2.0.1
 gTTS==2.2.3
 requests==2.26.0
 beautifulsoup4==4.9.3
-language-tool-python==2.7.1
 langdetect==1.0.9
 gunicorn==20.1.0
 Flask-CORS==3.0.10
+Werkzeug==2.3.7
