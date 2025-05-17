@@ -1,0 +1,6 @@
+Flask==2.0.1
+gTTS==2.3.1
+requests==2.28.1
+beautifulsoup4==4.11.1
+language-tool-python==2.7.1
+langdetect==1.0.9

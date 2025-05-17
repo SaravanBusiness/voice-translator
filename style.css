@@ -1,0 +1,630 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: url('images/background-main.jpg') no-repeat center center/cover;
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/overlay-pattern.png') repeat;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+/* Feature 8: Dark/Light Mode */
+body.dark-mode {
+    background: url('images/background-dark.jpg') no-repeat center center/cover;
+}
+
+body.dark-mode .header,
+body.dark-mode .footer {
+    background: url('images/dark-header-bg.jpg') no-repeat center center/cover;
+}
+
+body.dark-mode .container {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .user-section,
+body.dark-mode .history-section {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('images/header-bg.jpg') no-repeat center center/cover;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.header .logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.header .globe-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.header h1 {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 100%;
+    max-width: 800px;
+}
+
+.user-section {
+    width: 100%;
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid transparent;
+    border-image: url('images/decorative-border.png') 30 stretch;
+}
+
+.user-section h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-align: center;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.user-section h2 .user-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.language-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.language-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    min-width: 200px;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+label .translate-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+select {
+    padding: 10px 30px 10px 15px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(135deg, #ffffff, #e0e0e0);
+    color: #333;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    width: 100%;
+    appearance: none;
+    background-image: url('images/dropdown-icon.png');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px 16px;
+}
+
+select:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+select:focus {
+    outline: none;
+    background: linear-gradient(135deg, #e0e0e0, #ffffff);
+}
+
+select::-webkit-scrollbar {
+    width: 8px;
+}
+
+select::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+select::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.record-button {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #ff6f61, #ff3d3d);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    margin-top: 20px;
+    text-align: center;
+    line-height: 1.2;
+    padding: 5px;
+}
+
+.record-button img {
+    position: absolute;
+}
+
+.record-button .wave-bg {
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.record-button .mic-icon {
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    top: 10px;
+}
+
+.record-button span {
+    z-index: 2;
+    position: relative;
+    margin-top: 30px;
+}
+
+.record-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.record-button:active {
+    transform: scale(0.95);
+}
+
+.record-button::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+.record-button.recording::before {
+    animation: wave 1s infinite;
+}
+
+@keyframes wave {
+    0% {
+        transform: scale(0.8);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(0.8);
+        opacity: 1;
+    }
+}
+
+/* Chat History Section */
+.history-section {
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    background: url('images/history-bg.jpg') no-repeat center center/cover;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid transparent;
+    border-image: url('images/decorative-border.png') 30 stretch;
+    display: none;
+}
+
+.history-section h2 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-align: center;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.history-entry {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.history-entry p {
+    color: #fff;
+    font-size: 14px;
+}
+
+.play-button {
+    padding: 5px 10px;
+    background: linear-gradient(135deg, #28a745, #218838);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.play-button img {
+    width: 16px;
+    height: 16px;
+}
+
+.play-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.history-button {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.history-button img {
+    width: 20px;
+    height: 20px;
+}
+
+.history-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.footer {
+    position: absolute;
+    bottom: 20px;
+    color: #fff;
+    font-size: 14px;
+    opacity: 0.7;
+    text-align: center;
+    background: url('images/footer-bg.jpg') no-repeat center center/cover;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.footer .home-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.footer .social-links {
+    display: flex;
+    gap: 10px;
+}
+
+.footer .social-icon {
+    width: 20px;
+    height: 20px;
+}
+
+@media (max-width: 600px) {
+    .language-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .record-button {
+        width: 80px;
+        height: 80px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    .user-section {
+        padding: 15px;
+    }
+
+    .header h1 {
+        font-size: 20px;
+    }
+
+    .header .logo {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* नए स्टाइल्स जोड़े गए */
+.history-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.error-button {
+    padding: 5px 10px;
+    background: linear-gradient(135deg, #ff6f61, #ff3d3d);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.error-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Feature 2: Detect Language Button */
+.detect-language-button {
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #17a2b8, #117a8b);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.detect-language-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Feature 3 & 4: History Delete & Download Buttons */
+.delete-history-button,
+.download-history-button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.delete-history-button {
+    background: linear-gradient(135deg, #dc3545, #bd2130);
+}
+
+.download-history-button {
+    background: linear-gradient(135deg, #6f42c1, #5a32a3);
+}
+
+.delete-history-button:hover,
+.download-history-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.delete-history-button img,
+.download-history-button img {
+    width: 16px;
+    height: 16px;
+}
+
+/* Feature 5 & 6: Audio Speed & Volume Control */
+.audio-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.audio-speed-control,
+.audio-volume-control {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.audio-speed-control select,
+.audio-volume-control input {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background: #fff;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Feature 7: Text Copy Button */
+.copy-button {
+    padding: 5px 10px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.copy-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Feature 8: Theme Toggle Button */
+.theme-toggle-button {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #f1c40f, #d4ac0d);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.theme-toggle-button img {
+    width: 20px;
+    height: 20px;
+}
+
+.theme-toggle-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Feature 10: History Search */
+#history-search {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+    background: rgba(255, 255, 255, 0.8);
+    color: #333;
+}
+
+/* Feature 14: Font Size Adjustment */
+.font-size-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.font-size-control label {
+    color: #fff;
+    font-size: 14px;
+}
+
+/* Feature 15: Edit History Entry */
+.edit-button {
+    padding: 5px 10px;
+    background: linear-gradient(135deg, #fd7e14, #e06600);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.edit-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
