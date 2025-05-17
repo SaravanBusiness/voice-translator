@@ -67,7 +67,7 @@ async function updateUILabels() {
     ];
 
     try {
-        const response = await fetch('http://localhost:8080/translate', {
+        const response = await fetch('https://voice-translator-backend-3xfp.onrender.com/translate', {
             method: 'POST',
             body: JSON.stringify({ ui_labels: labels, target: targetLang }),
             headers: { 'Content-Type': 'application/json' }
@@ -169,7 +169,7 @@ async function editHistoryEntry(index) {
         const targetLang = entry.user === 1 ? user1TargetLanguage.value : user2TargetLanguage.value;
 
         try {
-            const response = await fetch('http://localhost:8080/translate', {
+            const response = await fetch('https://voice-translator-backend-3xfp.onrender.com/translate', {
                 method: 'POST',
                 body: JSON.stringify({ q: newText, source: sourceLang, target: targetLang }),
                 headers: { 'Content-Type': 'application/json' }
@@ -177,7 +177,7 @@ async function editHistoryEntry(index) {
             const data = await response.json();
             if (data.error) throw new Error(data.error);
 
-            const ttsResponse = await fetch('http://localhost:8080/tts', {
+            const ttsResponse = await fetch('https://voice-translator-backend-3xfp.onrender.com/tts', {
                 method: 'POST',
                 body: JSON.stringify({ text: data.translatedText, lang: targetLang }),
                 headers: { 'Content-Type': 'application/json' }
@@ -348,7 +348,7 @@ recognition.onresult = async (event) => {
         // Feature 1: Auto-Detect Language
         let detectedSourceLang = sourceLang;
         if (sourceLang === 'auto') {
-            const detectResponse = await fetch('http://localhost:8080/detect_language', {
+            const detectResponse = await fetch('https://voice-translator-backend-3xfp.onrender.com/detect_language', {
                 method: 'POST',
                 body: JSON.stringify({ text: transcript }),
                 headers: { 'Content-Type': 'application/json' }
@@ -360,7 +360,7 @@ recognition.onresult = async (event) => {
         }
 
         // ट्रांसलेशन रिक्वेस्ट भेजें
-        const response = await fetch('http://localhost:8080/translate', {
+        const response = await fetch('https://voice-translator-backend-3xfp.onrender.com/translate', {
             method: 'POST',
             body: JSON.stringify({ q: transcript, source: detectedSourceLang, target: targetLang }),
             headers: { 'Content-Type': 'application/json' }
@@ -370,7 +370,7 @@ recognition.onresult = async (event) => {
         if (data.error) throw new Error(data.error);
 
         // TTS (Text-to-Speech) रिक्वेस्ट भेजें
-        const ttsResponse = await fetch('http://localhost:8080/tts', {
+        const ttsResponse = await fetch('https://voice-translator-backend-3xfp.onrender.com/tts', {
             method: 'POST',
             body: JSON.stringify({ text: data.translatedText, lang: targetLang }),
             headers: { 'Content-Type': 'application/json' }
